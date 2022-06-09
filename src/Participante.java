@@ -10,9 +10,9 @@ public class Participante {
 	public int getPercentual() {
 		int desconto;
 		
-		if (this.idade < 18)
+		if (this.getIdade() < 18)
 			desconto = 50;
-		else if (this.idade < 60)
+		else if (this.getIdade() < 60)
 			desconto = 0;
 		else
 			desconto = 20;
@@ -50,6 +50,29 @@ public class Participante {
 				return ev;
 		
 		return null;
-		
+	}
+
+	public int getIdade() {
+		return idade;
+	}
+
+	public void setIdade(int idade) {
+		this.idade = idade;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 }
