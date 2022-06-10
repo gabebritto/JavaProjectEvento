@@ -8,6 +8,13 @@ public class Evento {
 	private double preco;
 	private ArrayList<Participante> participantes;
 	
+	public Evento(int id, String data, String descricao, double preco) {
+		this.id = id;
+		this.data = data;
+		this.descricao = descricao;
+		this.preco = preco;
+	}
+	
 	public ArrayList<Participante> getParticipantes() {
 		return participantes;
 	}
@@ -49,29 +56,50 @@ public class Evento {
 	}
 	
 	public double getTotalValorPago() {
-		double totalPago;
-		return totalPago = 2;
+		double totalValor = 0;
+		
+		for (Participante p : this.getParticipantes()) {
+			totalValor += p.getValorPago(this.getPreco());
+		}
+		return totalValor;
 	}
 	
 	public void adicionar(Participante p) {
-		
+		this.getParticipantes().add(p);
 	}
 	
 	public void remover(Participante p) {
-		
+		this.getParticipantes().remove(p);
 	}
 	
 	public double getIadeMedia() {
-		double idade;
-		return idade= 1;
+		double idadeTotal = 0;
+		double media;
+		
+		for(Participante p : this.getParticipantes()) {
+			idadeTotal += p.getIdade();
+		}
+		media = idadeTotal/this.getParticipantes().size();
+		return media;
 	}
 	
 	public ArrayList<Participante> getParticipantesPorIdade(int idade){
-		ArrayList<Participante> teste = new ArrayList<>();
-		return teste;
+		ArrayList<Participante> idadeIgual = new ArrayList<>();
+		
+		for (Participante p : this.getParticipantes()) {
+			if (p.getIdade() == idade)
+				idadeIgual.add(p);
+		}
+		
+		return idadeIgual;
 	}
 	
 	public int contarConvidados() {
+		int nConvidados = 0;
+		for (Participante p : this.getParticipantes()) {
+			if (p.)
+		}
+		
 		int convidados = 1;
 		return convidados;
 	}

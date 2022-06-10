@@ -6,6 +6,11 @@ public class Participante {
 	private int idade;
 	private ArrayList<Evento> eventos = new ArrayList<>();
 	
+	public Participante(String email, String nome, int idade) {
+		this.email = email;
+		this.nome = nome;
+		this.idade = idade;
+	}
 	
 	public int getPercentual() {
 		int desconto;
@@ -39,25 +44,13 @@ public class Participante {
 	public void adicionar(Evento ev) {
 		this.getEventos().add(ev);
 	}
-	
-	public void remover(Evento ev) {
-		this.getEventos().remove(ev);
-	}
-	
-	public Evento localizar(int id) {
-		for (Evento ev: this.getEventos())
-			if (ev.getId() == id)
-				return ev;
-		
-		return null;
+
+	public String getEmail() {
+		return email;
 	}
 
-	public int getIdade() {
-		return idade;
-	}
-
-	public void setIdade(int idade) {
-		this.idade = idade;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public String getNome() {
@@ -68,11 +61,23 @@ public class Participante {
 		this.nome = nome;
 	}
 
-	public String getEmail() {
-		return email;
+	public int getIdade() {
+		return idade;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setIdade(int idade) {
+		this.idade = idade;
+	}
+
+	public void remover(Evento ev) {
+		this.getEventos().remove(ev);
+	}
+	
+	public Evento localizar(int id) {
+		for (Evento ev: this.getEventos())
+			if (ev.getId() == id)
+				return ev;
+		
+		return null;
 	}
 }
