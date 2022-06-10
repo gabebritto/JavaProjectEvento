@@ -16,7 +16,7 @@ public class Participante {
 	@Override
 	public String toString() {
 		return "email=" + email + ", nome=" + nome 
-				+ ", idade=" + idade + ", percentual=" + (getPercentual()*100) 
+				+ ", idade=" + idade + ", percentual=" + getPercentual() 
 				+ ", eventos:" + eventos;
 	}
 	
@@ -82,10 +82,10 @@ public class Participante {
 	}
 	
 	public Evento localizar(int id) {
-		for (Evento ev: this.getEventos())
+		for (Evento ev: this.getEventos()){
 			if (ev.getId() == id)
 				return ev;
-		
+		}
 		return null;
 	}
 }

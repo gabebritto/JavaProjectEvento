@@ -6,7 +6,7 @@ public class Evento {
 	private String data;
 	private String descricao;
 	private double preco;
-	private ArrayList<Participante> participantes;
+	private ArrayList<Participante> participantes = new ArrayList<>();
 	
 	public Evento(int id, String data, String descricao, double preco) {
 		this.id = id;
@@ -65,14 +65,14 @@ public class Evento {
 	}
 	
 	public void adicionar(Participante p) {
-		this.getParticipantes().add(p);
+		this.participantes.add(p);
 	}
 	
 	public void remover(Participante p) {
 		this.getParticipantes().remove(p);
 	}
 	
-	public double getIadeMedia() {
+	public double getIdadeMedia() {
 		double idadeTotal = 0;
 		double media;
 		
@@ -141,6 +141,6 @@ public class Evento {
 	@Override
 	
 	public String toString() {
-		return "id =" + this.getId() + "Data =" + this.getData() + "Descrição =" + this.getDescricao() + "Preço =" + this.getPreco();
+		return "id= " + this.getId() + ", Data= " + this.getData() + ", Descrição= " + this.getDescricao() + ", Preço= " + this.getPreco();
 	}
 }
