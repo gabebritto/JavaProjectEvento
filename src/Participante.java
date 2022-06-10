@@ -1,4 +1,3 @@
-import java.text.NumberFormat;
 import java.util.ArrayList;
 
 public class Participante {
@@ -21,23 +20,24 @@ public class Participante {
 				+ ", eventos:" + eventos;
 	}
 	
-	public double getPercentual() {
-		double desconto;
+	public int getPercentual() {
+		int desconto;
 		
-		if (this.getIdade() < 18)
-			desconto = 0.5;
-		else if (this.getIdade() < 60)
+		if (this.getIdade() < 18) {
+			desconto = 50;
+		}else if (this.getIdade() < 60)
 			desconto = 0;
 		else
-			desconto = 0.2;
-		
+			desconto = 20;		
 		return desconto;
 	}
 	
 	public double getValorPago(double preco) {
-		double desconto = getPercentual();
+		int desconto = getPercentual();
 		
-		double valorPago = preco - (preco * desconto); 
+		double descontoReal = desconto / 100.0;
+		double valorPago = preco - preco * descontoReal; 
+		
 		return valorPago;
 	}
 
