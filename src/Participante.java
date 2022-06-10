@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import preco, id;
 
 public class Participante {
 	private String email;
@@ -18,7 +17,7 @@ public class Participante {
 		
 		if (this.getIdade() < 18)
 			desconto = 50;
-		else if (18 <= this.getIdade() && this.getIdade() < 60)
+		else if (this.getIdade() < 60)
 			desconto = 0;
 		else
 			desconto = 20;
@@ -27,12 +26,23 @@ public class Participante {
 	}
 	
 	public double getValorPago(double preco) {
-		return preco;
+		int desconto = getPercentual();
+		Double.parseDouble(Integer.toString(desconto));
+		
+		double valorPago = preco - preco * (desconto/100); 
+		return valorPago;
+	}
+
+	public ArrayList<Evento> getEventos() {
+		return eventos;
+	}
+
+	public void setEventos(ArrayList<Evento> eventos) {
+		this.eventos = eventos;
 	}
 	
-	public void adicionar(ArrayList<Evento> eventos) {
-		this.eventos =  eventos.add()
-		return this.eventos
+	public void adicionar(Evento ev) {
+		this.getEventos().add(ev);
 	}
 
 	public String getEmail() {
@@ -59,12 +69,15 @@ public class Participante {
 		this.idade = idade;
 	}
 
-	public ArrayList<Evento> getEventos() {
-		return eventos;
-	}
-
-	public void setEventos(ArrayList<Evento> eventos) {
-		this.eventos = eventos;
+	public void remover(Evento ev) {
+		this.getEventos().remove(ev);
 	}
 	
+	public Evento localizar(int id) {
+		for (Evento ev: this.getEventos())
+			if (ev.getId() == id)
+				return ev;
+		
+		return null;
+	}
 }
