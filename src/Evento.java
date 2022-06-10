@@ -96,32 +96,51 @@ public class Evento {
 	
 	public int contarConvidados() {
 		int nConvidados = 0;
-		for (Participante p : this.getParticipantes()) {
-			if (p.)
+		for (Participante p: this.getParticipantes()) {
+			if (p instanceof Convidado) {
+				nConvidados += 1;
+			}
 		}
-		
-		int convidados = 1;
-		return convidados;
+		return nConvidados;
 	}
 	
 	public ArrayList<Convidado> getConvidados(){
-		ArrayList<Convidado> teste = new ArrayList<>();
-		return teste;
+		ArrayList<Convidado> convidados = new ArrayList<>();
+		for (Participante p: this.getParticipantes())
+			if (p instanceof Convidado)
+				convidados.add((Convidado) p);
+		return convidados;
 	}
 	
 	public int contarGratuidades() {
 		int gratuito = 1;
+		for (Convidado c: this.getConvidados()) {
+			if (c.getIdade() < 18 && c.getIdade() >= 0)
+				gratuito += 1;
+		}
 		return gratuito;
 	}
 	
 	public ArrayList<Convidado> getConvidados(String empresa){
-		ArrayList<Convidado> text = new ArrayList<>();
-		return text;
+		ArrayList<Convidado> convidadosEmpresa = new ArrayList<>();
+		for (Convidado c: this.getConvidados()) {
+			if (c.getEmpresa() == empresa)
+				convidadosEmpresa.add(c);
+		}
+		return convidadosEmpresa;
 	}
 	
 	public Participante localizar(String nome) {
-		Participante a = null;
-		return a;
+		for (Participante p: this.getParticipantes()) {
+			if (p.getNome() == nome)
+				return p;
+		}
+		return null;
+	}
+	
+	@Override
+	
+	public String toString() {
+		return "id =" + this.getId() + "Data =" + this.getData() + "Descrição =" + this.getDescricao() + "Preço =" + this.getPreco();
 	}
 }
-
