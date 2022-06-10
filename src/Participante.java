@@ -1,3 +1,4 @@
+import java.text.NumberFormat;
 import java.util.ArrayList;
 
 public class Participante {
@@ -10,26 +11,33 @@ public class Participante {
 		this.email = email;
 		this.nome = nome;
 		this.idade = idade;
+		
 	}
 	
-	public int getPercentual() {
-		int desconto;
+	@Override
+	public String toString() {
+		return "email=" + email + ", nome=" + nome 
+				+ ", idade=" + idade + ", percentual=" + (getPercentual()*100) 
+				+ ", eventos:" + eventos;
+	}
+	
+	public double getPercentual() {
+		double desconto;
 		
 		if (this.getIdade() < 18)
-			desconto = 50;
+			desconto = 0.5;
 		else if (this.getIdade() < 60)
 			desconto = 0;
 		else
-			desconto = 20;
+			desconto = 0.2;
 		
 		return desconto;
 	}
 	
 	public double getValorPago(double preco) {
-		int desconto = getPercentual();
-		Double.parseDouble(Integer.toString(desconto));
+		double desconto = getPercentual();
 		
-		double valorPago = preco - preco * (desconto/100); 
+		double valorPago = preco - (preco * desconto); 
 		return valorPago;
 	}
 
