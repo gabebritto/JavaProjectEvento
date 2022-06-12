@@ -15,9 +15,11 @@ public class Participante {
 	
 	@Override
 	public String toString() {
+		String checkEventos = "";
+		for(Evento ev: eventos) {checkEventos += ev.getId()+ ",";};
 		return "email=" + email + ", nome=" + nome 
 				+ ", idade=" + idade + ", percentual=" + getPercentual() 
-				+ ", eventos:" + eventos;
+				+ ", eventos:" + checkEventos;
 	}
 	
 	public int getPercentual() {
