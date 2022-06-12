@@ -1,4 +1,3 @@
-
 public class Convidado extends Participante{
 	private String empresa;
 	
@@ -14,7 +13,12 @@ public class Convidado extends Participante{
 	public void setEmpresa(String empresa) {
 		this.empresa = empresa;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "Empresa= " + empresa + ", " + super.toString();
+	}
+	@Override
 	public int getPercentual() {
 		int desconto;
 		

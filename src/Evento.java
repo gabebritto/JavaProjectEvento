@@ -8,7 +8,7 @@ public class Evento {
 	private double preco;
 	private ArrayList<Participante> participantes = new ArrayList<>();
 	
-	public Evento(int id, String data, String descricao, double preco) {
+	public Evento(int id, String descricao, String data, double preco) {
 		this.id = id;
 		this.data = data;
 		this.descricao = descricao;
@@ -65,7 +65,7 @@ public class Evento {
 	}
 	
 	public void adicionar(Participante p) {
-		this.participantes.add(p);
+		this.getParticipantes().add(p);
 	}
 	
 	public void remover(Participante p) {
@@ -113,7 +113,7 @@ public class Evento {
 	}
 	
 	public int contarGratuidades() {
-		int gratuito = 1;
+		int gratuito = 0;
 		for (Convidado c: this.getConvidados()) {
 			if (c.getIdade() < 18 && c.getIdade() >= 0)
 				gratuito += 1;
@@ -131,8 +131,8 @@ public class Evento {
 	}
 	
 	public Participante localizar(String nome) {
-		for (Participante p: this.getParticipantes()) {
-			if (p.getNome() == nome)
+		for (Participante p: participantes) {
+			if (p.getNome().equals(nome))
 				return p;
 		}
 		return null;
@@ -141,6 +141,6 @@ public class Evento {
 	@Override
 	
 	public String toString() {
-		return "id= " + this.getId() + ", Data= " + this.getData() + ", Descrição= " + this.getDescricao() + ", Preço= " + this.getPreco();
+		return "id= " + this.getId() + ", Data= " + this.getData() + ", DescriÃ§Ã£o= " + this.getDescricao() + ", PreÃ§o= " + this.getPreco();
 	}
 }

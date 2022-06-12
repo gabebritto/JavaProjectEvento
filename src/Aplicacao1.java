@@ -1,9 +1,7 @@
-import modelo.Convidado;
-import modelo.Participante;
 
 /**
  * SI - POO - Prof. Fausto Ayres
- * Projeto: Relacionamento *:* e herança
+ * Projeto: Relacionamento *:* e heranï¿½a
  * Teste das classes Participante - Convidado
  *
  */
@@ -11,9 +9,9 @@ public class Aplicacao1 {
 	public static void main(String[] args) {
 		/*
 		  Exemplo:
-			um participante de 17 anos terá um percentual de desconto de 50% pela idade, 
-			um convidado de 17 anos terá um percentual de 100% (50% pela idade + 50% de bônus). 
-			Para um evento com preço de R$1000,00, o participante pagará R$500,00 e convidado não pagará nada.
+			um participante de 17 anos terï¿½ um percentual de desconto de 50% pela idade, 
+			um convidado de 17 anos terï¿½ um percentual de 100% (50% pela idade + 50% de bï¿½nus). 
+			Para um evento com preï¿½o de R$1000,00, o participante pagarï¿½ R$500,00 e convidado nï¿½o pagarï¿½ nada.
 			(valor pago = preco - preco*percentual/100)
 		 */
 
